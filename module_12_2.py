@@ -2,6 +2,7 @@ import runner_and_tournament as rt
 import unittest
 
 
+@unittest.skipIf(True, "Тесты в этом кейсе заморожены")
 class TournamentTest(unittest.TestCase):
 
     all_results = None
