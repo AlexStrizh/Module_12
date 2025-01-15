@@ -1,7 +1,9 @@
 import runner
 import unittest
 
+@unittest.skipIf(False, "")
 class RunnerTest(unittest.TestCase):
+
     def test_walk(self):
         walker = runner.Runner("Walker")
         for i in range(10):
