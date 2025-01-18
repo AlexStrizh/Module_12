@@ -1,0 +1,31 @@
+import logging
+import unittest
+from rt_with_exceptions import Runner
+
+class RunnerTest(unittest.TestCase):
+
+    def test_walk(self):
+        try:
+            walker = Runner("Walker", -5)
+            for i in range(10):
+                walker.walk()
+            self.assertEqual(walker.distance, 50)
+            logging.info('"test_walk" выполнен успешно')
+        except ValueError:
+            logging.warning('Неверная скорость для Runner', exc_info = True)
+
+    def test_run(self):
+        try:
+            runner_ = Runner(966979)
+            for i in range(10):
+                runner_.run()
+            self.assertEqual(runner_.distance, 100)
+            logging.info('"test_run" выполнен успешно')
+        except TypeError:
+            logging.warning('Неверный тип данных для объекта Runner', exc_info = True)
+
+
+if __name__ == '__main__':
+    unittest.main()
+    logging.basicConfig(level=logging.INFO, filemode = 'w', filename = 'runner_tests.log', encoding = 'utf-8',
+                        format='%(asctime)s - %(levelname)s - %(message)s')
